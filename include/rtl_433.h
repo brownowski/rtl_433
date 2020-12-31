@@ -18,11 +18,11 @@
 #define FSK_PULSE_DETECTOR_LIMIT 800000000
 
 #define MINIMAL_BUF_LENGTH      512
-#define MAXIMAL_BUF_LENGTH      (256 * 16384)
+#define MAXIMAL_BUF_LENGTH      (256 * 16384 * 4)
 #define SIGNAL_GRABBER_BUFFER   (12 * DEFAULT_BUF_LENGTH)
 #define MAX_FREQS               32
 
-#define INPUT_LINE_MAX 8192 /**< enough for a complete textual bitbuffer (25*256) */
+#define INPUT_LINE_MAX 32768 /**< enough for a complete textual bitbuffer (100*256) */
 
 struct sdr_dev;
 struct r_device;
