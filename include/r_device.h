@@ -51,6 +51,7 @@ typedef struct r_device {
     float gap_limit;
     float sync_width;
     float tolerance;
+    unsigned invert;
     int (*decode_fn)(struct r_device *decoder, struct bitbuffer *bitbuffer);
     struct r_device *(*create_fn)(char *args);
     unsigned disabled;
