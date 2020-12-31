@@ -50,6 +50,7 @@ typedef struct r_device {
     float reset_limit;
     float gap_limit;
     float sync_width;
+    float sync_gap;
     float tolerance;
     unsigned invert;
     int (*decode_fn)(struct r_device *decoder, struct bitbuffer *bitbuffer);
