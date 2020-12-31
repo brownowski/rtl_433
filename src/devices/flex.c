@@ -334,6 +334,7 @@ static void help()
             "\tshort=<short> (or: s=<short>)\n"
             "\tlong=<long> (or: l=<long>)\n"
             "\tsync=<sync> (or: y=<sync>)\n"
+            "\tsync_gap=<sync_gap>\n"
             "\treset=<reset> (or: r=<reset>)\n"
             "\tgap=<gap> (or: g=<gap>)\n"
             "\ttolerance=<tolerance> (or: t=<tolerance>)\n"
@@ -557,6 +558,8 @@ r_device *flex_create_device(char *spec)
             dev->long_width = atoi(val);
         else if (!strcasecmp(key, "y") || !strcasecmp(key, "sync"))
             dev->sync_width = atoi(val);
+        else if (!strcasecmp(key, "sync_gap"))
+            dev->sync_gap = atoi(val);
         else if (!strcasecmp(key, "g") || !strcasecmp(key, "gap"))
             dev->gap_limit = atoi(val);
         else if (!strcasecmp(key, "r") || !strcasecmp(key, "reset"))
@@ -585,8 +588,10 @@ r_device *flex_create_device(char *spec)
         else if (!strcasecmp(key, "repeats"))
             params->min_repeats = params->max_repeats = val ? atoi(val) : 0;
 
-        else if (!strcasecmp(key, "invert"))
+        else if (!strcasecmp(key, "invert")) {
+            dev->invert = val ? atoi(val) : 1;
             params->invert = val ? atoi(val) : 1;
+        }
         else if (!strcasecmp(key, "reflect"))
             params->reflect = val ? atoi(val) : 1;
 
